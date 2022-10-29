@@ -1,0 +1,293 @@
+:root {
+  /* colors */
+  --border-active: linear-gradient(
+    to right,
+    hsl(249, 99%, 64%),
+    hsl(278, 94%, 30%)
+  );
+  --input-error: hsl(0, 100%, 66%);
+  --white: hsl(0, 0%, 100%);
+  --light-gray: hsl(270, 3%, 87%);
+  --dark-gray: hsl(279, 6%, 55%);
+  --dark-violet: hsl(278, 68%, 11%);
+}
+
+.container {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 250px 1fr;
+  overflow: hidden;
+}
+
+.bg {
+  height: 100%;
+}
+
+.form-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cards-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.card-container {
+  width: 300px;
+  position: absolute;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  line-height: 0;
+}
+
+.card-container:first-child {
+  z-index: 100;
+  left: 18px;
+  top: -120px;
+  color: var(--white);
+}
+
+.card-container:last-child {
+  z-index: 10;
+  left: 64px;
+  top: -213px;
+}
+
+.card-logo,
+.card-data {
+  position: absolute;
+}
+
+.card-logo {
+  left: 20px;
+  top: 20px;
+  width: 65px;
+}
+
+.card-data {
+  width: 100%;
+  bottom: 0;
+  padding: 20px 20px 6px 20px;
+  font-size: 12px;
+  line-height: initial;
+  letter-spacing: 1px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.number {
+  width: 100%;
+  font-size: 20px;
+  margin-bottom: 8px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.name {
+  text-transform: uppercase;
+  max-width: 175px;
+}
+
+.card__cvc {
+  position: absolute;
+  right: 2.2em;
+  top: 81px;
+  color: var(--white);
+  letter-spacing: 2px;
+  font-size: 14px;
+}
+
+.form,
+.msg {
+  width: 100%;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+}
+
+.form__columns,
+.form__control {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.form__control .error-msg {
+  visibility: hidden;
+}
+.form__columns .form__control {
+  margin: 0;
+}
+
+.form__label {
+  width: 100%;
+  margin-bottom: 0.5em;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: block;
+}
+
+.form__input {
+  width: 100%;
+  border: 1px solid var(--light-gray);
+  border-radius: 0.5em;
+  padding: 0.5em 1em;
+  outline: none;
+  text-transform: capitalize;
+}
+
+.form__input[type='number']::-webkit-inner-spin-button,
+.form__input[type='number']::-webkit-outer-spin-button {
+  appearance: none;
+  margin: 0;
+}
+.form__input[type='number'] {
+  appearance: textfield;
+}
+
+.input__container {
+  position: relative;
+  height: auto;
+}
+
+.form__input:focus + .border-gradient {
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  content: '';
+  position: absolute;
+  left: -1px;
+  top: -1px;
+  background-image: var(--border-active);
+  z-index: -1;
+  border-radius: 0.5em;
+}
+
+.form__input::placeholder {
+  color: var(--light-gray);
+}
+
+.form__input.c-number {
+  text-transform: uppercase;
+}
+.form__columns,
+.double__input {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.form__columns {
+  gap: 1em;
+}
+
+.double__input {
+  gap: 0.7em;
+}
+
+.error .input__container,
+.error .error-msg {
+  color: var(--input-error);
+  visibility: visible;
+}
+
+.error .form__input:focus + .border-gradient {
+  background-color: var(--input-error);
+  background-image: none;
+}
+
+.error .form__input {
+  border-color: var(--input-error);
+}
+
+.msg {
+  text-align: center;
+  display: none;
+}
+
+.msg__icon {
+  width: 80px;
+}
+
+.msg__title {
+  text-transform: uppercase;
+  font-weight: normal;
+  letter-spacing: 3px;
+}
+
+.msg__paragraph {
+  color: var(--dark-gray);
+}
+
+.form__btn,
+.msg__btn {
+  width: 100%;
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+  border: none;
+  border-radius: 0.5em;
+  color: var(--white);
+  background-color: var(--dark-violet);
+}
+
+.form__btn {
+  margin-top: 1em;
+}
+
+.msg__btn {
+  margin-top: 1.8em;
+}
+
+.msg__btn:active {
+  filter: brightness(1.2);
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    grid-template-columns: 35% 65%;
+    grid-template-rows: 100vh 100vh;
+  }
+
+  .card-container {
+    width: 400px;
+  }
+
+  .card-container:first-child {
+    left: -290px;
+    top: 200px;
+  }
+
+  .card-container:last-child {
+    left: -210px;
+    top: 450px;
+  }
+
+  .card-data {
+    padding: 28px 28px 16px;
+    letter-spacing: 3px;
+  }
+
+  .card-logo {
+    width: 70px;
+  }
+
+  .number {
+    font-size: 2.2em;
+  }
+
+  .card__cvc {
+    top: 107px;
+    right: 2.5em;
+    font-size: 18px;
+  }
+
+  .form,
+  .msg {
+    max-width: 500px;
+    margin-left: 7em;
+  }
+}

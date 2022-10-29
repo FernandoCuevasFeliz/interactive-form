@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Interactive</title>
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- css -->
+    <link rel="stylesheet" href="./css/normalize.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+
+    <!-- js -->
+    <script src="./js/scripts.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <picture class="bg-container">
+        <source media="(min-width:768px)" srcset="./img/bg-main-desktop.png" />
+        <img class="bg" src="./img/bg-main-mobile.png" alt="bg" />
+      </picture>
+      <div class="form-container">
+        <div class="cards-container">
+          <div class="card-container">
+            <img class="card" src="./img/bg-card-front.png" alt="card-front" />
+            <img class="card-logo" src="./img/card-logo.svg" alt="card-logo" />
+
+            <div class="card-data">
+              <div class="number" id="card-number">0000 0000 0000 0000</div>
+              <p class="name" id="card-name">Kamui Tech</p>
+              <p class="cv">
+                <span class="month" id="card-month">00</span>/<span
+                  class="year"
+                  id="card-year"
+                  >00</span
+                >
+              </p>
+            </div>
+          </div>
+          <div class="card-container">
+            <img class="card" src="./img/bg-card-back.png" alt="card-back" />
+            <div class="card__cvc" id="card-cvc">000</div>
+          </div>
+        </div>
+        <form class="form">
+          <div class="form__control">
+            <label class="form__label" for="name">CardHolder Name</label>
+            <div class="input__container">
+              <input
+                class="form__input"
+                type="text"
+                placeholder="e.g Fernando Cuevas"
+                id="name"
+                maxlength="30"
+              />
+              <div class="border-gradient"></div>
+            </div>
+            <small class="error-msg">Invalid name</small>
+          </div>
+
+          <div class="form__control">
+            <label class="form__label" for="card-number">Card Number</label>
+            <div class="input__container">
+              <input
+                class="form__input c-number"
+                type="text"
+                placeholder="e.g 1234 5678 9123 000"
+                id="number"
+                maxlength="19"
+              />
+              <div class="border-gradient"></div>
+            </div>
+            <small class="error-msg">Wrong format. Number only</small>
+          </div>
+          <div class="form__columns">
+            <div class="form__control">
+              <label class="form__label" for="month">Exp. Date (MM/YY) </label>
+              <div class="double__input">
+                <div class="input__container">
+                  <input
+                    class="form__input"
+                    type="text"
+                    placeholder="MM"
+                    id="month"
+                    maxlength="2"
+                    onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"
+                  />
+                  <div class="border-gradient"></div>
+                </div>
+                <div class="input__container">
+                  <input
+                    class="form__input"
+                    type="text"
+                    placeholder="YY"
+                    id="year"
+                    maxlength="2"
+                    onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"
+                  />
+                  <div class="border-gradient"></div>
+                </div>
+              </div>
+              <small class="error-msg">Can't be blank</small>
+            </div>
+            <div class="form__control">
+              <label class="form__label" for="cvc">CVC</label>
+              <div class="input__container">
+                <input
+                  class="form__input"
+                  type="text"
+                  placeholder="e.g. 123"
+                  id="cvc"
+                  maxlength="3"
+                  onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"
+                />
+                <div class="border-gradient"></div>
+              </div>
+              <small class="error-msg">Can't be blank</small>
+            </div>
+          </div>
+          <button class="form__btn">Continue</button>
+        </form>
+        <div class="msg">
+          <img
+            src="./img/icon-complete.svg"
+            alt="icon-complete"
+            class="msg__icon"
+          />
+          <h2 class="msg__title">Thanks you!</h2>
+          <p class="msg__paragraph">We've added your card details</p>
+          <button class="msg__btn">Continue</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
